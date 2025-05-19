@@ -5,7 +5,7 @@ import { SearchData } from "./modules/Search/components/SearchData";
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
+      <h1>Search State Demo</h1>
       <div className="card">
         <div
           style={{

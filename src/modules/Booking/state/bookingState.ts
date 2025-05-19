@@ -25,12 +25,12 @@ export const MultiBookingState = createStore<MultiBookingState>({
   activeBookingId: null,
 });
 
-export const useMultiBookingState = () => {
+export const useBookingState = () => {
   return useStore(MultiBookingState);
 };
 
 export const useActiveBookingState = () => {
-  const { bookings, activeBookingId } = useMultiBookingState();
+  const { bookings, activeBookingId } = useBookingState();
   return activeBookingId
     ? bookings.find((b) => b.id === activeBookingId)?.state
     : null;
