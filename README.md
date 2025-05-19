@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# React Simple Global State
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight and flexible state management solution for React applications with built-in persistence support.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project provides a simple yet powerful state management system that combines global state management with persistence capabilities. It's designed to be modular, type-safe, and easy to integrate into React applications.
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── state/                    # Core state management
+│   ├── globalState.ts       # Global state implementation
+│   ├── stateInitialiser.ts  # State initialization utilities
+│   ├── persistance/         # Persistence middleware
+│   └── utils/              # State management utilities
+│
+├── modules/                 # Feature modules
+│   ├── Search/             # Example module
+│   │   ├── state/         # Module-specific state
+│   │   ├── components/    # React components
+│   │   ├── hooks/        # Custom hooks
+│   │   ├── queries/      # Data fetching logic
+│   │   └── actions/      # State actions
+│   └── ...
+│
+└── main.tsx                # Application entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Core Concepts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Global State
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+The global state system provides a simple way to manage application state with the following features:
+
+- Type-safe state management
+- Subscription-based updates
+- Middleware support
+- Persistence capabilities
+
+### Persistence System
+
+The persistence system allows you to:
+
+- Save state to various storage backends
+- Load state on application startup
+- Validate state during loading
+- Handle persistence errors
+- Clear persisted state
+
+### Module System
+
+The project follows a modular architecture where each feature is organized into its own module. Each module typically contains:
+
+- State management
+- React components
+- Custom hooks
+- Data fetching logic
+- State actions
+
+## Features
+
+- 🔒 Type-safe state management
+- 💾 Built-in persistence support
+- 🔄 Automatic state synchronization
+- 🎯 Modular architecture
+- ⚡ Lightweight and performant
+- 🔍 Validation support
+- 🛠️ Middleware system
+
+## Development
+
+1. Install dependencies:
+
+```bash
+pnpm install
 ```
+
+2. Start the development server:
+
+```bash
+pnpm dev
+```
+
+3. Build for production:
+
+```bash
+pnpm build
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT
